@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/base-auth-layout">
+<head>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src='http://crossfilter.github.io/crossfilter/crossfilter.v1.min.js'></script>
+    <script src='/js/data.js'></script>
+
+    <script src="/js/main.js"></script>
+    <style>
+
+        .bar--positive {
+            fill: #9BCCF5;
+        }
+
+        .bar--negative {
+            fill: pink;
+        }
+
+        text {
+            font: 10px sans-serif;
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .title {
+            font-size: 13px;
+            font-weight:bold;
+        }
+        .active {
+            stroke: black;
+            stroke-width: 1.5px;
+        }
+        .reset {
+            fill:blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        text.negative,
+        text.positive,
+        .label,
+        .bar,
+        .node text,
+        circle {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container" layout:fragment="content">
+    This is index page
+
+    <div>
+
+        <span id='tornado-chart'></span>
+        <span id='tornado-chart2'></span>
+    </div>
+
+    <div>
+        <span id='bubble-chart'></span>
+        <span id='bar-chart'></span>
+    </div>
+
+    <input type="button" name="Bar Chart" Value="Bar Chart" onClick="createBarChart()"/>
+    <input type="button" name="Bar Chart" Value="Bar Chart" onClick="createBarChart()"/>
+    <input type="button" name="Cross Filter" Value="Cross Filter" onClick="createCrossFilter()"/>
+
+    <script>
+
+    </script>
+
+</div>
+</body>
+</html>
