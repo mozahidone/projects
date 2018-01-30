@@ -26,27 +26,12 @@ public class StateRepositoryTest {
 
     @Test
     public void testSaveProduct(){
-        //setup product
         State state = new State();
         state.setAnnotation("New Annotation 1");
 
-        //save product, verify has ID value after save
-        assertNull(state.getId()); //null before save
         stateRepository.save(state);
         assertNotNull(state.getId()); //not null after save
-        //fetch from DB
-        State fetchedState = stateRepository.findOne(state.getId());
 
-        //should not be null
-        assertNotNull(fetchedState);
-
-        //should equal
-        assertEquals(state.getId(), fetchedState.getId());
-        assertEquals(state.getAnnotation(), fetchedState.getAnnotation());
-
-        //update description and save
-        fetchedState.setAnnotation("New Annotation 2");
-        stateRepository.save(fetchedState);
 
     }
 }

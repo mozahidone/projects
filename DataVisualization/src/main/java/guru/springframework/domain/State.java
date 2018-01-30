@@ -1,9 +1,11 @@
 package guru.springframework.domain;
 
+import guru.springframework.converter.DateNoMs;
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
@@ -17,4 +19,12 @@ public class State extends BaseModel {
     private int parentNode;
     private int childNote;
     private String annotation;
+
+    @Type(type="guru.springframework.converter.DateNoMsType")
+    @Column(name = "PAYMENT_DATE")
+    private DateNoMs paymentDate;
+
+    @Type(type="guru.springframework.converter.UtcDateType")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date testDate;
 }
